@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
+import {useForm} from "./useForm";
 
 function App() {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [values, handleChange] = useForm({email: "", password: ""});
 
 	console.log({ email });
 	console.log({ password });
@@ -11,14 +11,14 @@ function App() {
 		<div>
 			<input
 				name="email"
-				value={email}
-				onChange={(e) => setEmail(e.target.value)}
+				value={values.email}
+				onChange={handleChange}
 			/>
 			<input
 				type="password"
 				name="password"
-				value={password}
-				onChange={(e) => setPassword(e.target.value)}
+				value={values.password}
+				onChange={handleChange}
 			/>
 		</div>
 	);
