@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import {useForm} from "./useForm";
 
 function App() {
 	const [values, handleChange] = useForm({email: "", password: ""});
 
-	console.log({ email });
-	console.log({ password });
+	console.log(values.email);
+	console.log(values.password);
 	return (
 		<div>
 			<input
