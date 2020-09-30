@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 import { useForm } from "./useForm";
 import { useFetch } from "./useFetch";
@@ -19,13 +19,16 @@ function App() {
 		localStorage.setItem("count", JSON.stringify(count));
 	}, [count]);
 
+	const inputRef = useRef();
+
 	return (
 		<div>
 			<div>{!data ? "loading..." : data}</div>
 			<div>count: {count} </div>
 			<button onClick={() => setCount((c) => c + 1)}>Increment</button>
 
-			{/* <input
+			<input
+				ref={inputRef}
 				name="email"
 				placeholder="email"
 				value={values.email}
@@ -43,7 +46,14 @@ function App() {
 				placeholder="Password"
 				value={values.password}
 				onChange={handleChange}
-			/> */}
+			/>
+			<button
+				onClick={() => {
+					inputRef.current.focus();
+				}}
+			>
+				Focus
+			</button>
 		</div>
 	);
 }
