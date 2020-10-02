@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import "./App.css";
 import { useForm } from "./useForm";
 import { useFetch } from "./useFetch";
@@ -20,6 +20,10 @@ function App() {
 	}, [count]);
 
 	const inputRef = useRef();
+
+	// useLayoutEffect(() => {
+	// 	console.log(inputRef.current.getBindingClientRect());
+	// }, []);
 
 	return (
 		<div>
