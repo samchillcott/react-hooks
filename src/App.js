@@ -1,11 +1,8 @@
 import React from "react";
-import Helo from "./Hello"
+import Hello from "./Hello";
 import "./App.css";
 
-
 function App() {
-
-
 	return (
 		<div>
 			<Hello />
